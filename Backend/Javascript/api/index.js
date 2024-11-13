@@ -7,9 +7,13 @@ const port = 3000;
 
 app.use(cors());
 
-const connection = db.createConnection({
+const connection = mysql.createConnection({
     host: process.env.DBHOST,
     user: process.env.DBUSER,
     password: process.env.DBPASSWORD,
     database:"cafe_port"
+});
+
+app.listen(port, () =>{
+    console.log(`Application is now running on port ${port}`);
 });
