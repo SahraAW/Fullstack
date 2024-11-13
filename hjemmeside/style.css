@@ -1,0 +1,170 @@
+/* Global Styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+/* Navbar / Logo */
+.content {
+    width: 100%;
+    font-size: 20px;
+
+    text-align: justify;
+}
+
+.logo {
+    position: fixed;
+    float: left;
+    padding: 0.5rem 0.2rem;
+    margin: 0 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+/* Navbar */
+nav {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    background-color: #211E1B; /* Sørger for baggrundsfarve */
+}
+
+nav ul {
+    list-style: none;
+    color: white;
+    text-align: right;
+
+}
+
+nav.black ul {
+    background: #211E1B;
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    width: 50%;
+}
+
+.menu-icon {
+    width: 100%;
+    background: #211E1B;
+    text-align: right;
+    box-sizing: border-box;
+    cursor: pointer;
+    color: white;
+    display: none;
+}
+
+/*  søgefelt */
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 5px 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px 0 0 20px;
+    outline: none;
+}
+
+.search-button {
+    padding: 5px 10px;
+    background-color: saddlebrown; /* Samme farve som dine andre knapper */
+    border: none;
+    border-radius: 0 20px 20px 0;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+/*header */
+.main-img {
+    width: 100%;
+    height: 100vh;
+    background: url(/img1/7.jpg) no-repeat 50% 50%;
+    background-size: cover;
+}
+
+@media (max-width: 900px) {
+    .main-img {
+        width: 100%;
+        background-size: cover;
+    }
+}
+
+.main-img::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.landingpage-img1::after,
+.landingpage-img2::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.main-text {
+    text-align: center;
+}
+
+.landingpage-img1 {
+    width: 100%;
+    height: 100vh;
+    /*background: url(/img1/7.jpg) no-repeat 50% 50%;*/
+    background-size: cover;
+}
+
+@media (max-width: 900px) {
+    .landingpage-img1 {
+        width: 100%;
+    }
+}
+
+.img-text {
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    z-index: 2;
+    padding: 0 6%;
+    color: #fff;
+    font-size: 38px;
+}
+
+@media (max-width: 900px) {
+    .img-text {
+        font-size: 1rem;
+    }
+}
+
+.brd-img {
+    color: #fff;
+    font-size: 17px;
+}
