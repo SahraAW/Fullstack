@@ -1,37 +1,33 @@
+
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Coffee Shops</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
+
 <header class="main-img">
-
-
-    <div class="img-text" >
+    <div class="img-text">
         <h1> COFFEE SHOPS</h1>
         <p class="brd-img"> Uanset om du skal have en forretningsfrokost, en romantisk <br>
             Middag ved levende lys eller bare en drink efter en travl dag, <br>
             vil GastroPub altid imødekomme dine behov.
         </p>
-        <button  class="button"> Om Os </button>
+        <button class="button"> Om Os </button>
     </div>
 
-
     <nav>
-
         <div class="menu-icon">
-
             <i class="fa fa-bars fa-2x"></i>
-
         </div>
-
         <div class="logo">
             <a href="forside.html" style="background-color: rgba(0,0, 0, 0); color: saddlebrown;">CS</a>
         </div>
-
         <div class="nav">
             <ul>
                 <li><a href="omos.html">Om Os</a></li>
@@ -39,13 +35,52 @@
                 <li><a href="#">Galleri</a></li>
                 <li><a href="#">Nyheder</a></li>
                 <li><a href="#">Kontakt</a></li>
-                <li>  <form class="search-form">
-                    <input type="text" placeholder="Søg..." class="search-input">
-                    <button type="submit" class="search-button">🔍</button>
-                </form></li>
+                <li>
+                    <form class="search-form">
+                        <input type="text" placeholder="Søg..." class="search-input">
+                        <button type="submit" class="search-button">🔍</button>
+                    </form>
+                </li>
             </ul>
         </div>
     </nav>
 </header>
+
+<section id="map-container" style="margin-top: 50px;">
+    <h2>Explore the Coffee Shops</h2>
+    <div id="map" style="height: 600px;"></div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+<!-- Dette kort skal ligges under en js fil, og forbindes til vores data -->
+
+<script>
+    // Initialize the map (set to Copenhagen's coordinates)
+    const map = L.map('map').setView([55.6761, 12.5683], 13);
+
+    // Add OpenStreetMap tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Fetch cafes data from the server
+    fetch('/cafes')
+        .then(response => response.json())
+        .then(cafes => {
+            cafes.forEach(cafe => {
+                // Add a marker for each cafe using its latitude and longitude
+                L.marker([cafe.latitude, cafe.longitude]).addTo(map)
+                    .bindPopup(`<strong>${cafe.name}</strong><br>${cafe.city}`)
+                    .openPopup();
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching cafes data:', error);
+        });
+</script>
+
 </body>
 </html>
+
