@@ -3,17 +3,19 @@ const mysql = require('mysql2');
 const app = express();
 const port = 3000;
 
+app.use(express.static('public'));  // Serve static files (HTML, CSS, JS)
+app.use(express.json());  // Parse incoming requests with JSON payload
 
 // Set up MySQL connection
 const connection = mysql.createConnection({
-    host: process.env.DBHOST,
+    host: process.env.DBHOST,  // Ensure these are correct (check .env if used)
     user: process.env.DBUSER,
     password: process.env.DBPASSWORD,
-    database: "cafe_port"
+    database: "cafe_port"  // Ensure this database contains the cafes table
 });
 
 // Endpoint to fetch cafes
-// Tjek om det virker ved at run filen i Webstorm og kopier dette til browseren: http://localhost:3000/cafes
+// Tjek om det virker ved at run filen i Webstorm og kopier dette til browseren:
 app.get('/cafes', (req, res) => {
     const query = 'SELECT name, city, latitude, longitude FROM cafes';
     connection.query(query, (err, results) => {
