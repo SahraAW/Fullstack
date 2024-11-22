@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="portfolio5" type="NodeJSConfigurationType" path-to-js-file="Backend/Javascript/api/index.js" working-dir="$PROJECT_DIR$">
+    <envs>
+      <env name="DBHOST" value="localhost" />
+      <env name="DBPASSWORD" value="XyZ_3642fgb!" />
+      <env name="DBUSER" value="root" />
+    </envs>
+    <method v="2" />
+  </configuration>
+</component>
