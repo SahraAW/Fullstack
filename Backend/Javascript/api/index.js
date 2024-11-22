@@ -52,6 +52,19 @@ app.get('/users', (req, res) => {
     });
 });
 
+app.get('/users/:id', (req, res) => {
+    const userId = req.params.id;
+    const query = 'SELECT * FROM users WHERE user_id = ?'
+    connection.query(query, [userId], (err, results) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Error fetching cafes data');
+            return;
+        }
+        res.json(results);  // Send the cafe data as JSON response
+    });
+});
+
 // Start the server
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
