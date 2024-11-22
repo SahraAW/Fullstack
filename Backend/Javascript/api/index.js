@@ -28,6 +28,30 @@ app.get('/cafes', (req, res) => {
     });
 });
 
+app.get('/users', (req, res) => {
+    const query = 'SELECT \n' +
+        '    users.username AS user_name,\n' +
+        '    cafes.name AS cafe_name,\n' +
+        '    cafes.city AS cafe_city,\n' +
+        '    cafes.price_level AS cafe_price_level\n' +
+        'FROM \n' +
+        '    favorites\n' +
+        'JOIN \n' +
+        '    users ON favorites.user_id = users.user_id\n' +
+        'JOIN \n' +
+        '    cafes ON favorites.cafe_id = cafes.cafe_id\n' +
+        'ORDER BY \n' +
+        '    users.username, cafes.name;';
+    connection.query(query, (err, results) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Error fetching cafes data');
+            return;
+        }
+        res.json(results);  // Send the cafe data as JSON response
+    });
+});
+
 // Start the server
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
