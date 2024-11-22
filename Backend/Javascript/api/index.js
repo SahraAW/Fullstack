@@ -20,7 +20,6 @@ const connection = mysql.createConnection({
 });
 
 // Endpoint to fetch cafes
-// Tjek om det virker ved at run filen i Webstorm og kopier dette til browseren:
 app.get('/cafes', (req, res) => {
     const query = 'SELECT name, city, latitude, longitude FROM cafes';
     connection.query(query, (err, results) => {
@@ -33,6 +32,7 @@ app.get('/cafes', (req, res) => {
     });
 });
 
+// Endpoint to fetch users usernames aswell as their favorites
 app.get('/users', (req, res) => {
     const query = 'SELECT \n' +
         '    users.username AS user_name,\n' +
@@ -57,6 +57,7 @@ app.get('/users', (req, res) => {
     });
 });
 
+//Endpoint to get a specific user by their ID
 app.get('/users/:id', (req, res) => {
     const userId = req.params.id;
     const query = 'SELECT * FROM users WHERE user_id = ?'
@@ -69,6 +70,7 @@ app.get('/users/:id', (req, res) => {
         res.json(results);  // Send the cafe data as JSON response
     });
 });
+
 
 // Start the server
 app.listen(port, () => {
