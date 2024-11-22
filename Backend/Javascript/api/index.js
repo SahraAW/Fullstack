@@ -1,17 +1,22 @@
 const express = require('express');
 const mysql = require('mysql2');
+const cors = require('cors');
+
 const app = express();
 const port = 3000;
 
-app.use(express.static('public'));  // Serve static files (HTML, CSS, JS)
-app.use(express.json());  // Parse incoming requests with JSON payload
+
+app.use(express.static('public')); // Serve static files (HTML, CSS, JS)
+app.use(express.json());
+
+app.use(cors());
 
 // Set up MySQL connection
 const connection = mysql.createConnection({
-    host: process.env.DBHOST,  // Ensure these are correct (check .env if used)
+    host: process.env.DBHOST,
     user: process.env.DBUSER,
     password: process.env.DBPASSWORD,
-    database: "cafe_port"  // Ensure this database contains the cafes table
+    database: "cafe_port"
 });
 
 // Endpoint to fetch cafes
@@ -24,7 +29,7 @@ app.get('/cafes', (req, res) => {
             res.status(500).send('Error fetching cafes data');
             return;
         }
-        res.json(results);  // Send the cafe data as JSON response
+        res.json(results);
     });
 });
 
@@ -48,7 +53,7 @@ app.get('/users', (req, res) => {
             res.status(500).send('Error fetching cafes data');
             return;
         }
-        res.json(results);  // Send the cafe data as JSON response
+        res.json(results);
     });
 });
 

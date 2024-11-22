@@ -156,9 +156,11 @@ nav ul li a {
 /* Map Section */
 #map-container {
     position: relative;
-    width: 100%;
+    width: 96%;
     height: 100%;
     z-index: 0;
+    padding: 10px;
+
 }
 
 #map {
