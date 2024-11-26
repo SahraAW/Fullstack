@@ -1,21 +1,25 @@
 const express = require('express');
 const mysql = require('mysql2');
+const cors = require('cors');
+
 const app = express();
 const port = 3000;
 
-app.use(express.static('public'));  // Serve static files (HTML, CSS, JS)
-app.use(express.json());  // Parse incoming requests with JSON payload
+
+app.use(express.static('public')); // Serve static files (HTML, CSS, JS)
+app.use(express.json());
+
+app.use(cors());
 
 // Set up MySQL connection
 const connection = mysql.createConnection({
-    host: process.env.DBHOST,  // Ensure these are correct (check .env if used)
+    host: process.env.DBHOST,
     user: process.env.DBUSER,
     password: process.env.DBPASSWORD,
-    database: "cafe_port"  // Ensure this database contains the cafes table
+    database: "cafe_port"
 });
 
 // Endpoint to fetch cafes
-// Tjek om det virker ved at run filen i Webstorm og kopier dette til browseren:
 app.get('/cafes', (req, res) => {
     const query = 'SELECT name, city, latitude, longitude FROM cafes';
     connection.query(query, (err, results) => {
@@ -24,10 +28,11 @@ app.get('/cafes', (req, res) => {
             res.status(500).send('Error fetching cafes data');
             return;
         }
-        res.json(results);  // Send the cafe data as JSON response
+        res.json(results);
     });
 });
 
+// Endpoint to fetch users usernames aswell as their favorites
 app.get('/users', (req, res) => {
     const query = 'SELECT \n' +
         '    users.username AS user_name,\n' +
@@ -48,10 +53,11 @@ app.get('/users', (req, res) => {
             res.status(500).send('Error fetching cafes data');
             return;
         }
-        res.json(results);  // Send the cafe data as JSON response
+        res.json(results);
     });
 });
 
+//Endpoint to get a specific user by their ID
 app.get('/users/:id', (req, res) => {
     const userId = req.params.id;
     const query = 'SELECT * FROM users WHERE user_id = ?'
@@ -64,6 +70,7 @@ app.get('/users/:id', (req, res) => {
         res.json(results);  // Send the cafe data as JSON response
     });
 });
+
 
 // Start the server
 app.listen(port, () => {
