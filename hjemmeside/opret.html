@@ -24,8 +24,7 @@
                     <li><button type="input" class="opret">opret dig her</button></li></a>
                 <li><a href="#">Nyheder</a></li>
                 <li><a href="#">Kontakt</a></li>
-                <li>
-                    <form class="search-form">
+                <li><form class="search-form">
                         <input type="text" placeholder="Søg..." class="search-input">
                         <button type="submit" class="search-button">🔍</button>
                     </form>
@@ -35,15 +34,16 @@
     </nav>
 </header>
 
-<!-- Boks Sektion -->
 
-<section class="form">
-    <form>
-        <input type="text" placeholder="name....">
-        <input type="text" placeholder="username....">
-        <input type="text" placeholder="code....">
+<main class="main-form">
+    <form id="signup-form">
+        <input type="text1" name="name" placeholder="Name..." required>
+        <input type="text2" name="username" placeholder="Username..." required>
+        <input type="password" name="password" placeholder="Password..." required>
+        <button type="submit" class="create">Create Account</button>
     </form>
-</section>
+</main>
+
 <!--footer-->
 <footer>
     <ul>
@@ -53,6 +53,7 @@
         <li><a href="#">Café</a></li>
     </ul>
 </footer>
+<script src="opret.js"></script>
 </body>
 </html>
 
