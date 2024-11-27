@@ -72,6 +72,20 @@ app.get('/users/:id', (req, res) => {
 });
 
 
+app.post('/users/create-new', (req, res) => {
+   const {name, username, password} = req.body
+    const query = 'INSERT INTO users (name, username, password) VALUES (?, ?, ?)';
+    connection.query(query, [name, username, password], (err, results) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Error creating user');
+            return;
+        }
+        res.status(201).json({ message: 'User created successfully', userid: results.insertId });
+    });
+});
+
+
 // Start the server
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
