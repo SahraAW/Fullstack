@@ -6,7 +6,6 @@ html, body {
 }
 
 /* Navbar / Logo */
-
 .menu-icon {
     width: 100%;
     background: #211E1B;
@@ -15,20 +14,20 @@ html, body {
     cursor: pointer;
     color: white;
     display: none;
-
-
 }
+
 .logo {
     position: fixed;
     float: left;
     margin-left: 20px;
-    font-weight:200;
+    font-weight: 200;
     font-size: 100px;
-    color:saddlebrown;
+    color: saddlebrown;
     font-family: 'Playfair Display';
     font-style: italic;
 }
-.logo a{
+
+.logo a {
     text-decoration: none;
 }
 
@@ -38,17 +37,13 @@ nav {
     z-index: 100;
     width: 100%;
     background-color: #211E1B;
-    height:12vh;
-
-
-
+    height: 12vh;
 }
 
 nav ul {
     list-style: none;
     color: white;
     text-align: right;
-
 }
 
 nav.black ul {
@@ -64,15 +59,14 @@ nav ul li a {
     text-decoration: none;
     color: white;
     font-size: 27px;
-
 }
 
-/*opret knap*/
+/* opret knap */
 .opret {
     background-color: saddlebrown;
     color: white;
     border: none;
-    border-radius: 22px 22px 22px 22px;
+    border-radius: 22px;
     font-size: 25px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -82,7 +76,7 @@ nav ul li a {
     background-color: #a0522d;
 }
 
-/*  søgefelt */
+/* søgefelt */
 .search-form {
     display: flex;
     align-items: center;
@@ -98,7 +92,7 @@ nav ul li a {
 
 .search-button {
     padding: 5px 10px;
-    background-color: saddlebrown; /* Samme farve som dine andre knapper */
+    background-color: saddlebrown;
     border: none;
     border-radius: 0 20px 20px 0;
     color: white;
@@ -106,17 +100,14 @@ nav ul li a {
     font-size: 25px;
 }
 
-
-
-/*header */
+/* Header Styling */
 .main-img {
     position: relative;
     width: 100%;
-    height: 100%;
-    background: url(/img1/7.jpg) no-repeat 50% 50%;
-    background-size: cover;
+    height: 100vh; /* Ensure it takes the full height of the screen */
+    background: url('Byens.png') no-repeat center center; /* Using the old image */
+    background-size: cover; /* Ensures the image covers the area */
 }
-
 
 .main-img::after {
     content: "";
@@ -131,27 +122,6 @@ nav ul li a {
     z-index: 0;
 }
 
-.landingpage-img1::after,
-.landingpage-img2::after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0.3;
-    z-index: 0;
-}
-
-.main-text {
-    text-align: center;
-}
-
-
-
-
 .img-text {
     top: 50%;
     transform: translateY(-50%);
@@ -162,11 +132,76 @@ nav ul li a {
     font-size: 38px;
 }
 
-
+/* Paragraph Text Size */
 .brd-img {
     color: #fff;
-    font-size: 17px;
+    font-size: 22px; /* Increased text size for better readability */
 }
+
+/* Filter Buttons Styling */
+#filter-buttons {
+    display: flex;
+    justify-content: center; /* Center the buttons */
+    gap: 15px; /* Space between buttons */
+    margin: 30px 0; /* Add margin to space out from the top and bottom */
+}
+
+.filter-btn {
+    background-color: #8B5E3C; /* Coffee-like brown */
+    color: white;
+    font-size: 18px; /* Larger font size for readability */
+    padding: 12px 20px; /* Adequate padding for a clickable area */
+    border: none;
+    border-radius: 25px; /* Rounded corners for a soft look */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions for hover */
+    font-family: 'Roboto', sans-serif; /* Clean font */
+}
+
+.filter-btn:hover {
+    background-color: #6F4F28; /* Darker brown when hovering */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+.filter-btn:active {
+    background-color: #4B3621; /* Even darker brown for the active state */
+    transform: scale(0.98); /* Shrink the button when pressed */
+}
+
+/* Styling the "All Areas" button */
+.filter-btn[data-area="All"] {
+    background-color: #D2691E; /* A more distinctive color for "All Areas" */
+}
+
+.filter-btn[data-area="All"]:hover {
+    background-color: #B94E1A; /* Darker shade of the same color on hover */
+}
+
+/* Main "Show Map" Button (from the HTML example) */
+.button {
+    background-color: #8B5E3C; /* Coffee color */
+    color: white;
+    font-size: 18px;
+    padding: 15px 30px; /* Larger clickable area */
+    border: none;
+    border-radius: 50px; /* Rounded edges for a smooth look */
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none; /* Remove underline from the link */
+    display: inline-block; /* Make it behave like a button */
+}
+
+.button:hover {
+    background-color: #6F4F28; /* Darker brown on hover */
+    transform: scale(1.05); /* Slightly increase button size on hover */
+}
+
+.button:active {
+    background-color: #4B3621; /* Darkest brown when clicked */
+    transform: scale(0.98); /* Shrink the button when pressed */
+}
+
 
 /* Map Section */
 #map-container {
@@ -175,37 +210,32 @@ nav ul li a {
     height: 100%;
     z-index: 0;
     padding: 10px;
-
 }
 
 #map {
     width: 100%;
     height: 100%;
 }
-main {
-    flex: 1;
-}
-/* Section styling til omos.html*/
 
+/* Section Styling (Om Os page) */
 .box-section {
     display: flex;
-    justify-content: space-between; /* Evenly distribute the boxes */
-    gap: 20px; /* Space between boxes */
+    justify-content: space-between;
+    gap: 20px;
     padding: 20px;
-    background-color: #f4f4f4; /* Light background */
-height:100%;
+    background-color: #f4f4f4;
+    height: 100%;
 }
 
-/* Individual box styling */
 .box {
-    flex: 1; /* All boxes take equal width */
+    flex: 1;
     padding: 20px;
-    border: 1px solid #ddd; /* Light border */
-    border-radius: 8px; /* Rounded corners */
+    border: 1px solid #ddd;
+    border-radius: 8px;
     background-color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
-    margin-top:8%;
+    margin-top: 8%;
 }
 
 .box h2 {
@@ -220,14 +250,14 @@ height:100%;
     font-size: 16px;
     color: #333;
 }
-/*signin form*//*tilopret.html*/
+
+/* Sign-Up Form */
 .main-form {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
     background-color: #f5f5f5;
-
 }
 
 #signup-form {
@@ -238,10 +268,9 @@ height:100%;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-
 }
 
-input,.create {
+input, .create {
     padding: 0.8rem;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -260,15 +289,14 @@ input,.create {
     background-color: #45a049;
 }
 
-
-/*footer */
+/* Footer */
 footer {
     background-color: #000;
     padding: 20px 0;
     text-align: center;
     position: bottom;
-    margin-bottom:auto;
-    width:100%;
+    margin-bottom: auto;
+    width: 100%;
 }
 
 footer ul {
@@ -287,10 +315,10 @@ footer li {
 footer a {
     color: #fff;
     text-decoration: none;
-    font-weight: bold; /
+    font-weight: bold;
     transition: color 0.3s ease;
+}
 
 footer a:hover {
     color: #ff9800;
 }
-

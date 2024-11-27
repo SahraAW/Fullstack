@@ -13,13 +13,12 @@
 <!--landing page-->
 <header class="main-img">
     <div class="img-text">
-        <h1> COFFEE SHOPS</h1>
         <p class="brd-img"> Uanset om du skal have en forretningsfrokost, en romantisk <br>
             Middag ved levende lys eller bare en drink efter en travl dag, <br>
             vil GastroPub altid imødekomme dine behov.
         </p>
         <a href="#map-container">
-        <button class="button"> kort over cafe'er </button></a>
+        <button class="button"> Kort over cafe'er </button></a>
     </div>
     <!--nav-->
     <nav>
@@ -35,8 +34,6 @@
                 <li><a href="omos.html">Om Os</a></li>
                 <a href="opret.html">
                     <li><button type="input" class="opret">Opret dig her</button></li></a>
-                <li><a href="#">Nyheder</a></li>
-                <li><a href="#">Kontakt</a></li>
                 <li>
                     <form class="search-form">
                         <input type="text" placeholder="Søg..." class="search-input">
@@ -48,7 +45,15 @@
     </nav>
 </header>
 
-<!--map-->
+<!-- Filter Buttons -->
+<section id="filter-buttons">
+    <button class="filter-btn" data-area="Vesterbro">Vesterbro</button>
+    <button class="filter-btn" data-area="Nørrebro">Nørrebro</button>
+    <button class="filter-btn" data-area="Østerbro">Østerbro</button>
+    <button class="filter-btn" data-area="Indre By">Indre By</button>
+    <button class="filter-btn" data-area="All">All Areas</button>
+</section>
+
 
 <section id="map-container">
     <div id="map"></div>
