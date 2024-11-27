@@ -3,9 +3,8 @@ document.querySelector("#signup-form").addEventListener("submit", async function
 
     const formData = new FormData(e.target);
     const data = {
-        name: formData.get("name"),
+        email: formData.get("email"),
         username: formData.get("username"),
-        password: formData.get("password"),
     };
 
     const response = await fetch("http://localhost:3000/users/create-new", {
