@@ -1,3 +1,18 @@
+//Andreas skrift
+
+const username = document.querySelector("#username")
+submitBTN.addEventListener("click", ()=>{
+    console.log(username.value)
+})
+
+
+
+
+
+
+
+//Vores skrift
+
 document.querySelector("#signup-form").addEventListener("submit", async function (e) {
     e.preventDefault();
 
