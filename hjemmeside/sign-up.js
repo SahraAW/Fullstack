@@ -1,41 +1,36 @@
-//Andreas skrift
+// Variabler
+const username = document.querySelector("#username");
+const submitBTN = document.querySelector("#submitBTN");
+const email = document.querySelector("#email");
 
-const username = document.querySelector("#username")
-submitBTN.addEventListener("click", ()=>{
-    console.log(username.value)
-})
+// Click event til knappen
+submitBTN.addEventListener("click", async function (e) {
+    e.preventDefault();  // Prevent form from submitting normally
 
+    const user = username.value;
+    const userEmail = email.value;
 
-
-
-
-
-
-//Vores skrift
-
-document.querySelector("#signup-form").addEventListener("submit", async function (e) {
-    e.preventDefault();
+    console.log("Username:", user);
+    console.log("Email:", userEmail);
 
     const formData = new FormData(e.target);
     const data = {
-        email: formData.get("email"),
+        name: formData.get("name"),
         username: formData.get("username"),
+        password: formData.get("password")
     };
 
-    const response = await fetch("http://localhost:3000/users/create-new", {
+    // Fetch request til at sende dataen
+    const response = await fetch("opret.html", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
     });
 
-    if (response.ok) {
-        const result = await response.json();
-        alert("User created successfully!");
+    // Tgaer svaret som result
+    response.json().then(result => {
         console.log("Server response:", result);
-        e.target.reset(); // Denne linje reseter inputfeltet
-    } else {
-        const error = await response.json();
-        alert(`Failed to create user: ${error.message}`);
-        console.error("Error response:", error);
-    }
+    });
 });
