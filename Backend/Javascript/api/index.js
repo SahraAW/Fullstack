@@ -91,11 +91,12 @@ app.get('/users/:id', (req, res) => {
     });
 });
 
-// Endpoint til at servere HTML-filen
+// Endpoint for /users/create-new
 app.get('/users/create-new', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'opret.html'));
+    res.sendFile(path.join(__dirname, '../../../hjemmeside', 'opret.html'));
 });
 
+console.log(path.join(__dirname, '../../../hjemmeside', 'opret.html'));
 
 // Endpoint to create a new user
 app.post('/create-new', (req, res) => {
