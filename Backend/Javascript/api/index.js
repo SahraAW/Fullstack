@@ -7,10 +7,9 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
-
-app.use(express.static('public')); // Serve static files (HTML, CSS, JS)
+//app.use(express.static('public')); // Serve static files (HTML, CSS, JS)
+app.use(express.static(path.join(__dirname, '../../../hjemmeside')));
 app.use(express.json());
-
 app.use(cors());
 
 // Set up MySQL connection
