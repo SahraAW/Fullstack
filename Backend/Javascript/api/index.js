@@ -1,6 +1,8 @@
 const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors');
+const path = require('path');
+
 
 const app = express();
 const port = 3000;
@@ -30,6 +32,29 @@ app.get('/cafes', (req, res) => {
         }
         res.json(results);
     });
+});
+
+//Endpoint to search for the area of the cafes
+// Test this in the browser: http://localhost:3000/search-cafes?city=Vesterbro
+
+app.get('/search-cafes', (req, res) => {
+    const city = req.query.city; // Get the 'city' parameter from the query string
+
+    const query = 'SELECT name, city, wifi, price_level, has_food, latitude, longitude FROM cafes WHERE city = ?';
+    connection.query(query, [city], (err, results) => {
+        if (err) {
+            console.error('Error fetching cafes:', err);
+            res.status(500).send('Error fetching cafes data');
+            return;
+        }
+        res.json(results);
+    });
+});
+
+
+// Endpoint for /users/create-new
+app.get('/users/create-new', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../../hjemmeside', 'opret.html'));
 });
 
 // Endpoint to fetch users usernames aswell as their favorites
@@ -72,8 +97,11 @@ app.get('/users/:id', (req, res) => {
 });
 
 
+
+console.log(path.join(__dirname, '../../../hjemmeside', 'opret.html'));
+
 // Endpoint to create a new user
-app.post('/users/create-new', (req, res) => {
+app.post('/create-new', (req, res) => {
     const { email, username } = req.body;
     const query = 'INSERT INTO users (email, username) VALUES (?, ?)';
 
