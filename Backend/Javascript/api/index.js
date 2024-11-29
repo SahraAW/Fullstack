@@ -34,6 +34,24 @@ app.get('/cafes', (req, res) => {
     });
 });
 
+//Endpoint to search for the area of the cafes
+// Test this in the browser: http://localhost:3000/search-cafes?city=Vesterbro
+
+app.get('/search-cafes', (req, res) => {
+    const city = req.query.city; // Get the 'city' parameter from the query string
+
+    const query = 'SELECT name, city, wifi, price_level, has_food, latitude, longitude FROM cafes WHERE city = ?';
+    connection.query(query, [city], (err, results) => {
+        if (err) {
+            console.error('Error fetching cafes:', err);
+            res.status(500).send('Error fetching cafes data');
+            return;
+        }
+        res.json(results);
+    });
+});
+
+
 // Endpoint to fetch users usernames aswell as their favorites
 app.get('/users', (req, res) => {
     const query = 'SELECT \n' +
