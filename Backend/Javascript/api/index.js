@@ -53,6 +53,8 @@ app.get('/search-cafes', (req, res) => {
 
 // Endpoint for /users/create-new
 app.get('/users/create-new', (req, res) => {
+
+
     res.sendFile(path.join(__dirname, '../../../hjemmeside', 'opret.html'));
 });
 
@@ -102,6 +104,11 @@ console.log(path.join(__dirname, '../../../hjemmeside', 'opret.html'));
 // Endpoint to create a new user
 app.post('/create-new', (req, res) => {
     const { email, username } = req.body;
+
+    console.log(email);
+    console.log(username);
+
+
     const query = 'INSERT INTO users (email, username) VALUES (?, ?)';
 
     connection.query(query, [email, username], (err, results) => {
