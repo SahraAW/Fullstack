@@ -52,6 +52,11 @@ app.get('/search-cafes', (req, res) => {
 });
 
 
+// Endpoint for /users/create-new
+app.get('/users/create-new', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../../hjemmeside', 'opret.html'));
+});
+
 // Endpoint to fetch users usernames aswell as their favorites
 app.get('/users', (req, res) => {
     const query = 'SELECT \n' +
@@ -91,10 +96,7 @@ app.get('/users/:id', (req, res) => {
     });
 });
 
-// Endpoint for /users/create-new
-app.get('/users/create-new', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../../hjemmeside', 'opret.html'));
-});
+
 
 console.log(path.join(__dirname, '../../../hjemmeside', 'opret.html'));
 
