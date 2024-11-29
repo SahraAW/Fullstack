@@ -1,6 +1,8 @@
 const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors');
+const path = require('path');
+
 
 const app = express();
 const port = 3000;
@@ -71,9 +73,14 @@ app.get('/users/:id', (req, res) => {
     });
 });
 
+// Endpoint til at servere HTML-filen
+app.get('/users/create-new', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'opret.html'));
+});
+
 
 // Endpoint to create a new user
-app.post('/users/create-new', (req, res) => {
+app.post('/create-new', (req, res) => {
     const { email, username } = req.body;
     const query = 'INSERT INTO users (email, username) VALUES (?, ?)';
 
