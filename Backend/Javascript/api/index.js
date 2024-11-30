@@ -122,7 +122,7 @@ app.post('/create-new', (req, res) => {
 });
 
 
-// Start the server
+// Start the serve
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
