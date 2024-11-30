@@ -38,7 +38,7 @@ signupForm.addEventListener("click", function (event) {
 });
 
 /*
-// Variabler
+// Variable
 const username = document.querySelector("#username");
 const signupForm = document.querySelector("#submitBTN");
 const email = document.querySelector("#email");
