@@ -76,30 +76,6 @@ nav ul li a {
     background-color: #a0522d;
 }
 
-/* søgefelt */
-.search-form {
-    display: flex;
-    align-items: center;
-}
-
-.search-input {
-    padding: 5px 10px;
-    font-size: 25px;
-    border: 1px solid #ccc;
-    border-radius: 20px 0 0 20px;
-    outline: none;
-}
-
-.search-button {
-    padding: 5px 10px;
-    background-color: saddlebrown;
-    border: none;
-    border-radius: 0 20px 20px 0;
-    color: white;
-    cursor: pointer;
-    font-size: 25px;
-}
-
 /* Header Styling */
 .main-img {
     position: relative;
@@ -132,74 +108,68 @@ nav ul li a {
     font-size: 38px;
 }
 
-/* Paragraph Text Size */
-.brd-img {
-    color: #fff;
-    font-size: 22px; /* Increased text size for better readability */
-}
-
 /* Filter Buttons Styling */
 #filter-buttons {
     display: flex;
-    justify-content: center; /* Center the buttons */
-    gap: 15px; /* Space between buttons */
-    margin: 30px 0; /* Add margin to space out from the top and bottom */
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
 }
 
 .filter-btn {
-    background-color: #8B5E3C; /* Coffee-like brown */
+    background-color: #8B5E3C;
     color: white;
-    font-size: 18px; /* Larger font size for readability */
-    padding: 12px 20px; /* Adequate padding for a clickable area */
+    font-size: 18px;
+    padding: 12px 20px;
     border: none;
-    border-radius: 25px; /* Rounded corners for a soft look */
+    border-radius: 25px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions for hover */
-    font-family: 'Roboto', sans-serif; /* Clean font */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-family: 'Roboto', sans-serif;
 }
 
 .filter-btn:hover {
-    background-color: #6F4F28; /* Darker brown when hovering */
-    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    background-color: #6F4F28;
+    transform: scale(1.05);
 }
 
 .filter-btn:active {
-    background-color: #4B3621; /* Even darker brown for the active state */
-    transform: scale(0.98); /* Shrink the button when pressed */
+    background-color: #4B3621;
+    transform: scale(0.98);
 }
 
-/* Styling the "All Areas" button */
+/*  button in opret.html  */
 .filter-btn[data-area="All"] {
-    background-color: #D2691E; /* A more distinctive color for "All Areas" */
+    background-color: #D2691E;
 }
 
 .filter-btn[data-area="All"]:hover {
-    background-color: #B94E1A; /* Darker shade of the same color on hover */
+    background-color: #B94E1A;
 }
 
 /* Main "Show Map" Button (from the HTML example) */
 .button {
-    background-color: #8B5E3C; /* Coffee color */
+    background-color: #8B5E3C;
     color: white;
     font-size: 18px;
-    padding: 15px 30px; /* Larger clickable area */
+    padding: 15px 30px;
     border: none;
-    border-radius: 50px; /* Rounded edges for a smooth look */
+    border-radius: 50px;
     cursor: pointer;
     font-family: 'Roboto', sans-serif;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    text-decoration: none; /* Remove underline from the link */
-    display: inline-block; /* Make it behave like a button */
+    text-decoration: none;
+    display: inline-block;
 }
 
 .button:hover {
-    background-color: #6F4F28; /* Darker brown on hover */
-    transform: scale(1.05); /* Slightly increase button size on hover */
+    background-color: #6F4F28;
+    transform: scale(1.05);
 }
 
 .button:active {
-    background-color: #4B3621; /* Darkest brown when clicked */
-    transform: scale(0.98); /* Shrink the button when pressed */
+    background-color: #4B3621;
+    transform: scale(0.98);
 }
 
 
