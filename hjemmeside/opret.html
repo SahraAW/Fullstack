@@ -45,7 +45,10 @@
         <input type="text" name="city" placeholder="City..." required id="city">
 
         <label for="wifi">Wifi Available?</label>
-        <input type="checkbox" name="wifi" id="wifi">
+        <input type="hidden" name="wifi" value="0" id="wifi">
+        <input type="checkbox" name="wifi" value="1" />
+       <!-- <input type="checkbox" name="wifi" id="wifi"> -->
+
 
         <input type="text" name="music" placeholder="Music Type..." id="music">
 
@@ -57,7 +60,9 @@
         </select>
 
         <label>Has Food?</label>
-        <input type="checkbox" name="has_food" id="has_food">
+        <input type="hidden" name="has_food" value="0" id="has_food">
+        <input type="checkbox" name="has_food" value="1" />
+        <!-- <input type="checkbox" name="has_food" id="has_food" > -->
 
         <input type="number" step="0.000001" name="latitude" placeholder="Latitude..." id="latitude" required>
         <input type="number" step="0.000001" name="longitude" placeholder="Longitude..." id="longitude" required>

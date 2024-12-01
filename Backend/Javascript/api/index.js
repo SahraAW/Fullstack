@@ -53,8 +53,10 @@ app.get('/search-cafes', (req, res) => {
 
 // Endpoint for /users/create-new
 app.get('/users/create-new', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../../hjemmeside', 'opret.html'));
+});
 
-
+app.get('/cafes/create-new', (req, res) => {
     res.sendFile(path.join(__dirname, '../../../hjemmeside', 'opret.html'));
 });
 
@@ -111,7 +113,6 @@ app.post('/create-new', (req, res) => {
 
     const query = 'INSERT INTO users (email, username, password_hash) VALUES (?, ?, ?)';
 
-
     if (!email || !username || !password_hash) {
         return res.status(400).json({ message: 'Email, username, and password hash are required' });
     }
@@ -123,6 +124,26 @@ app.post('/create-new', (req, res) => {
             return;
         }
         res.status(201).json({ message: 'User created successfully', userid: results.insertId });
+    });
+});
+
+// Endpoint to create a new cafe
+app.post('/create-new-cafe', (req, res) => {
+    const { name, city, wifi, music, price_level, has_food, latitude, longitude } = req.body;
+
+    const query = 'INSERT INTO cafes (name, city, wifi, music, price_level, has_food, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+
+    if (!"name" || !"city" || !"latitude" || !"longitude") {
+        return res.status(400).json({ message: 'Name, city, latitude and longitude are required' });
+    }
+
+    connection.query(query, [name, city, wifi, music, price_level, has_food, latitude, longitude], (err, results) => {
+        if (err) {
+            console.error('Error creating café:', err);
+            res.status(500).json({ message: 'Error creating café' });
+            return;
+        }
+        res.status(201).json({ message: 'Café created successfully', userid: results.insertId });
     });
 });
 
