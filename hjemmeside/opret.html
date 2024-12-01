@@ -42,6 +42,34 @@
     </form>
 </main>
 
+<section>
+    <h2>Submit a New Cafe</h2>
+    <form id="submit-cafe-form">
+        <input type="text" name="name" placeholder="Cafe Name..." required id="cafeName">
+        <input type="text" name="city" placeholder="City..." required id="city">
+
+        <label for="wifi">Wifi Available?</label>
+        <input type="checkbox" name="wifi" id="wifi">
+
+        <input type="text" name="music" placeholder="Music Type..." id="music">
+
+        <label>Price Level:</label>
+        <select name="price_level" id="price_level">
+            <option value="cheap">Cheap</option>
+            <option value="moderate">Moderate</option>
+            <option value="expensive">Expensive</option>
+        </select>
+
+        <label>Has Food?</label>
+        <input type="checkbox" name="has_food" id="has_food">
+
+        <input type="number" step="0.000001" name="latitude" placeholder="Latitude..." id="latitude" required>
+        <input type="number" step="0.000001" name="longitude" placeholder="Longitude..." id="longitude" required>
+
+        <button type="submit" id="submitCafe">Submit Cafe</button>
+    </form>
+</section>
+
 <!--footer-->
 <footer>
     <footer>

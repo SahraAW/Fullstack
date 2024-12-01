@@ -104,9 +104,9 @@ nav ul li a {
 .main-img {
     position: relative;
     width: 100%;
-    height: 100vh; /* Ensure it takes the full height of the screen */
-    background: url('Byens.png') no-repeat center center; /* Using the old image */
-    background-size: cover; /* Ensures the image covers the area */
+    height: 100vh;
+    background: url('Byens.png') no-repeat center center;
+    background-size: cover;
 }
 
 .main-img::after {
@@ -135,71 +135,71 @@ nav ul li a {
 /* Paragraph Text Size */
 .brd-img {
     color: #fff;
-    font-size: 22px; /* Increased text size for better readability */
+    font-size: 22px;
 }
 
-/* Filter Buttons Styling */
+
 #filter-buttons {
     display: flex;
-    justify-content: center; /* Center the buttons */
-    gap: 15px; /* Space between buttons */
-    margin: 30px 0; /* Add margin to space out from the top and bottom */
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
 }
 
 .filter-btn {
-    background-color: #8B5E3C; /* Coffee-like brown */
+    background-color: #8B5E3C;
     color: white;
-    font-size: 18px; /* Larger font size for readability */
-    padding: 12px 20px; /* Adequate padding for a clickable area */
+    font-size: 18px;
+    padding: 12px 20px;
     border: none;
-    border-radius: 25px; /* Rounded corners for a soft look */
+    border-radius: 25px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions for hover */
-    font-family: 'Roboto', sans-serif; /* Clean font */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-family: 'Roboto', sans-serif;
 }
 
 .filter-btn:hover {
-    background-color: #6F4F28; /* Darker brown when hovering */
-    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    background-color: #6F4F28;
+    transform: scale(1.05);
 }
 
 .filter-btn:active {
-    background-color: #4B3621; /* Even darker brown for the active state */
-    transform: scale(0.98); /* Shrink the button when pressed */
+    background-color: #4B3621;
+    transform: scale(0.98);
 }
 
 /* Styling the "All Areas" button */
 .filter-btn[data-area="All"] {
-    background-color: #D2691E; /* A more distinctive color for "All Areas" */
+    background-color: #D2691E;
 }
 
 .filter-btn[data-area="All"]:hover {
-    background-color: #B94E1A; /* Darker shade of the same color on hover */
+    background-color: #B94E1A;
 }
 
 /* Main "Show Map" Button (from the HTML example) */
 .button {
-    background-color: #8B5E3C; /* Coffee color */
+    background-color: #8B5E3C;
     color: white;
     font-size: 18px;
-    padding: 15px 30px; /* Larger clickable area */
+    padding: 15px 30px;
     border: none;
-    border-radius: 50px; /* Rounded edges for a smooth look */
+    border-radius: 50px;
     cursor: pointer;
     font-family: 'Roboto', sans-serif;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    text-decoration: none; /* Remove underline from the link */
-    display: inline-block; /* Make it behave like a button */
+    text-decoration: none;
+    display: inline-block;
 }
 
 .button:hover {
-    background-color: #6F4F28; /* Darker brown on hover */
-    transform: scale(1.05); /* Slightly increase button size on hover */
+    background-color: #6F4F28;
+    transform: scale(1.05);
 }
 
 .button:active {
-    background-color: #4B3621; /* Darkest brown when clicked */
-    transform: scale(0.98); /* Shrink the button when pressed */
+    background-color: #4B3621;
+    transform: scale(0.98);
 }
 
 
@@ -256,9 +256,10 @@ nav ul li a {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 100vh;
     background-color: #f5f5f5;
 }
+
 
 #signup-form {
     display: flex;
@@ -269,6 +270,12 @@ nav ul li a {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
+
+#submit-cafe-form h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
 
 input, .create {
     padding: 0.8rem;
@@ -286,6 +293,50 @@ input, .create {
 }
 
 .create:hover {
+    background-color: #45a049;
+}
+
+
+#submit-cafe-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+#submit-cafe-form input,
+#submit-cafe-form select,
+#submit-cafe-form button {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1.2rem;
+}
+
+#submit-cafe-form input[type="checkbox"] {
+    width: auto;
+}
+
+#submit-cafe-form label {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+#submit-cafe-form button {
+    background-color: #4caf50;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+#submit-cafe-form button:hover {
     background-color: #45a049;
 }
 
