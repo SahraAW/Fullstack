@@ -4,7 +4,7 @@ signupForm.addEventListener("submit", function (event) {
     event.preventDefault();
     console.log("clicked the button");
 
-    const formData = new FormData(signupForm);
+    const formData = new FormData(signupForm); //Creating new FormData
     const data = Object.fromEntries(formData.entries()); // Convert to plain object
 
     console.log(data); // Logs the object
