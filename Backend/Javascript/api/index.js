@@ -37,7 +37,7 @@ app.get('/cafes', (req, res) => {
 // Test this in the browser: http://localhost:3000/search-cafes?city=Vesterbro
 
 app.get('/search-cafes', (req, res) => {
-    const city = req.query.city; // Get the 'city' parameter from the query string
+    const city = req.query.city;
 
     const query = 'SELECT name, city, wifi, price_level, has_food, latitude, longitude FROM cafes WHERE city = ?';
     connection.query(query, [city], (err, results) => {
@@ -111,7 +111,7 @@ app.post('/create-new', (req, res) => {
 
     const query = 'INSERT INTO users (email, username, password_hash) VALUES (?, ?, ?)';
 
-    // Check if any of the required fields are missing
+
     if (!email || !username || !password_hash) {
         return res.status(400).json({ message: 'Email, username, and password hash are required' });
     }

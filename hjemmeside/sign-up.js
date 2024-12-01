@@ -6,7 +6,7 @@ signupForm.addEventListener("submit", function (event) {
 
     const username = document.querySelector("#username").value;
     const email = document.querySelector("#email").value;
-    const password = document.querySelector("#formPassword").value;
+    const password = document.querySelector("#formPassword").value; // Brug password direkte
 
     console.log(username);
     console.log(email);
@@ -15,7 +15,7 @@ signupForm.addEventListener("submit", function (event) {
     const data = {
         username: username,
         email: email,
-        password: password
+        password_hash: password // Send password direkte
     };
 
     const fetchConfiguration = {
@@ -23,10 +23,11 @@ signupForm.addEventListener("submit", function (event) {
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data) // Data sendes som JSON
     };
 
     fetch("http://localhost:3000/create-new", fetchConfiguration)
         .then(res => res.json())
-        .then(res => console.log(res));
+        .then(res => console.log(res))
+        .catch(err => console.error("Error:", err));
 });
