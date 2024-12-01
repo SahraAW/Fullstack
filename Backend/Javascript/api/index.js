@@ -37,7 +37,7 @@ app.get('/cafes', (req, res) => {
 // Test this in the browser: http://localhost:3000/search-cafes?city=Vesterbro
 
 app.get('/search-cafes', (req, res) => {
-    const city = req.query.city; // Get the 'city' parameter from the query string
+    const city = req.query.city;
 
     const query = 'SELECT name, city, wifi, price_level, has_food, latitude, longitude FROM cafes WHERE city = ?';
     connection.query(query, [city], (err, results) => {
@@ -53,6 +53,8 @@ app.get('/search-cafes', (req, res) => {
 
 // Endpoint for /users/create-new
 app.get('/users/create-new', (req, res) => {
+
+
     res.sendFile(path.join(__dirname, '../../../hjemmeside', 'opret.html'));
 });
 
@@ -101,10 +103,20 @@ console.log(path.join(__dirname, '../../../hjemmeside', 'opret.html'));
 
 // Endpoint to create a new user
 app.post('/create-new', (req, res) => {
-    const { email, username } = req.body;
-    const query = 'INSERT INTO users (email, username) VALUES (?, ?)';
+    const { email, username, password_hash } = req.body; // Include password_hash here
 
-    connection.query(query, [email, username], (err, results) => {
+    console.log(email);
+    console.log(username);
+    console.log(password_hash);
+
+    const query = 'INSERT INTO users (email, username, password_hash) VALUES (?, ?, ?)';
+
+
+    if (!email || !username || !password_hash) {
+        return res.status(400).json({ message: 'Email, username, and password hash are required' });
+    }
+
+    connection.query(query, [email, username, password_hash], (err, results) => {
         if (err) {
             console.error('Error creating user:', err);
             res.status(500).json({ message: 'Error creating user' });
@@ -114,8 +126,7 @@ app.post('/create-new', (req, res) => {
     });
 });
 
-
-// Start the server
+// Start the serve
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
