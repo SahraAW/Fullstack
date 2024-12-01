@@ -4,30 +4,21 @@ signupForm.addEventListener("submit", function (event) {
     event.preventDefault();
     console.log("clicked the button");
 
-    const username = document.querySelector("#username").value;
-    const email = document.querySelector("#email").value;
-    const password = document.querySelector("#formPassword").value; // Brug password direkte
+    const formData = new FormData(signupForm);
+    const data = Object.fromEntries(formData.entries()); // Convert to plain object
 
-    console.log(username);
-    console.log(email);
-    console.log(password);
-
-    const data = {
-        username: username,
-        email: email,
-        password_hash: password // Send password direkte
-    };
+    console.log(data); // Logs the object
 
     const fetchConfiguration = {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(data) // Data sendes som JSON
+        body: JSON.stringify(data) // Send as JSON
     };
 
     fetch("http://localhost:3000/create-new", fetchConfiguration)
         .then(res => res.json())
         .then(res => console.log(res))
-        .catch(err => console.error("Error:", err));
+        .catch(error => console.error("Error:", error));
 });
