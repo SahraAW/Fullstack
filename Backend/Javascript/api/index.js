@@ -103,15 +103,20 @@ console.log(path.join(__dirname, '../../../hjemmeside', 'opret.html'));
 
 // Endpoint to create a new user
 app.post('/create-new', (req, res) => {
-    const { email, username } = req.body;
+    const { email, username, password_hash } = req.body; // Include password_hash here
 
     console.log(email);
     console.log(username);
+    console.log(password_hash);
 
+    const query = 'INSERT INTO users (email, username, password_hash) VALUES (?, ?, ?)';
 
-    const query = 'INSERT INTO users (email, username) VALUES (?, ?)';
+    // Check if any of the required fields are missing
+    if (!email || !username || !password_hash) {
+        return res.status(400).json({ message: 'Email, username, and password hash are required' });
+    }
 
-    connection.query(query, [email, username], (err, results) => {
+    connection.query(query, [email, username, password_hash], (err, results) => {
         if (err) {
             console.error('Error creating user:', err);
             res.status(500).json({ message: 'Error creating user' });
@@ -120,7 +125,6 @@ app.post('/create-new', (req, res) => {
         res.status(201).json({ message: 'User created successfully', userid: results.insertId });
     });
 });
-
 
 // Start the serve
 app.listen(port, () => {
